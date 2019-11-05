@@ -1,0 +1,25 @@
+version: '3.5'
+
+services:
+
+  mysql:
+    image: mysql:5.7
+    restart: "no"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: openmrs
+    volumes:
+      - type: bind
+        source: ./charset.cnf
+        target: /etc/mysql/conf.d/charset.cnf
+        read_only: true
+      - type: bind
+        source: ./deidentify_openmrs.sql
+        target: /deidentify_openmrs.sql
+      - type: bind
+        source: ./deletePatientDataForOpenMRS.sql
+        target: /deletePatientDataForOpenMRS.sql
+      - type: bind
+        source: ./mysql_backup.sql
+        target: /mysql_backup.sql
+
