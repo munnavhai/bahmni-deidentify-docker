@@ -28,6 +28,7 @@ truncate table cohort_member;
 truncate table patient_program;
 truncate table episode_patient_program;
 truncate table patient_program_attribute;
+truncate table patient_appointment_audit;
 truncate table patient_state;
 truncate table patient; 
 truncate table episode;
